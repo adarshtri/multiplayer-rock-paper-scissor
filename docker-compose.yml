@@ -1,0 +1,29 @@
+version: '3.7'
+services:
+  mongodb:
+    image: mongo:4.2.2
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: root
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
+
+  apis:
+    image: atrivedi/multiplayer-apis:latest
+    restart: always
+    ports:
+      - 49600:8080
+    hostname: apis.multiplayer
+
+  ui:
+    image: atrived/multiplayer-ui:latest
+    restart: always
+    ports:
+      - 49601:3000
+    hostname: ui.multiplayer
+    stdin_open: true
+
+volumes:
+  mongodb_data_container:

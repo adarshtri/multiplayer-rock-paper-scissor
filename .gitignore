@@ -1,1 +1,4 @@
 ui/.idea/
+.DS_Store
+.idea/
+backend-service/node_modules/

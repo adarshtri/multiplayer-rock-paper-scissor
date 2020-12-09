@@ -1,0 +1,25 @@
+{
+  "name": "apis",
+  "version": "0.0.1",
+  "description": "This project contains apis for the multiplayer games.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adarshtri/multiplayer-rock-paper-scissor.git"
+  },
+  "keywords": [
+    "apis"
+  ],
+  "author": "Adarsh Trivedi <adarsh.trivedi100@gmail.com> (https://adarshtri.github.io/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adarshtri/multiplayer-rock-paper-scissor/issues"
+  },
+  "homepage": "https://github.com/adarshtri/multiplayer-rock-paper-scissor#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
