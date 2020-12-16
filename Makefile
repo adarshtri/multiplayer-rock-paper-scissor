@@ -41,3 +41,8 @@ docker.restart.all:
 
 docker.stop.all:
 	docker-compose down
+
+docker.restart.ui:
+	docker build -t atrived/multiplayer-ui ui/
+	docker-compose stop -t 1 ui
+	docker-compose up -d ui

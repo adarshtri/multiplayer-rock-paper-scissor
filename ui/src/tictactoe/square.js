@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import {Button} from "antd";
-import {CloseOutlined} from "@ant-design/icons";
+import {CloseOutlined, SmileOutlined} from "@ant-design/icons";
 
 
 export default class Square extends Component{
@@ -9,6 +9,7 @@ export default class Square extends Component{
         super(props);
         this.state = {
             location: this.props.location,
+            choice: this.props.choice,
             background_icon: null,
             color: "grey"
         };
@@ -17,9 +18,16 @@ export default class Square extends Component{
 
     change_square_state(){
         if(this.state.background_icon === null){
-            this.setState({background_icon: <CloseOutlined/>});
+            if(this.state.choice === "cross")
+                this.setState({background_icon: <CloseOutlined/>});
+            else
+                this.setState({background_icon: <SmileOutlined/>})
             this.setState({color: "red"});
+        }else{
+            this.setState({background_icon: null});
+            this.setState({color: "grey"});
         }
+
         this.props.location_callback(this.props.location);
     }
 
