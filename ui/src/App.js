@@ -8,8 +8,11 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
 } from '@ant-design/icons';
+import Cookies from "js-cookie";
 import Home from "./home/home";
 import SiderMenu from "./home/sider_menu";
+import Login_home from "./user/login_home";
+import Account_info from "./user/account_home";
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -22,7 +25,12 @@ export default class App extends Component{
     }
 
     this.toggle_sider = this.toggle_sider.bind(this);
+    this.isLoggedIn = this.isLoggedIn.bind(this);
 
+  }
+
+  isLoggedIn(){
+    return !(Cookies.get("username") === "undefined" || Cookies.get("username") === undefined || Cookies.get("username") === null);
   }
 
   toggle_sider(){
@@ -57,8 +65,23 @@ export default class App extends Component{
                 <Content>
                   <div className={"center"} style={{margin: "10px"}}>
                     <Switch>
-                      <Route path="/game/tictactoe" exact component={Board} name="tictactoe"/>
-                      <Route path="/home" exact component={Home} name="gamehome"/>
+
+                      <Route path="/game/tictactoe/:gameid" exact render={(props)=>(
+                          !this.isLoggedIn()?(<Redirect to={"/login"}/>):(<Board {...props}/>)
+                      )}/>
+
+                      <Route path="/home" exact render={()=>(
+                          !this.isLoggedIn()?(<Redirect to={"/login"}/>):(<Home/>)
+                      )} name="gamehome"/>
+
+                      <Route path="/login" exact render={()=>(
+                          !this.isLoggedIn()?(<Login_home/>):(<Redirect to={"/home"}/>)
+                      )} name="login_home"/>
+
+                      <Route path="/user/account" exact render={()=>(
+                          !this.isLoggedIn()?(<Redirect to={"/login"}/>):(<Account_info/>)
+                      )}/>
+
                       <Redirect exact from="" to={"/home"}/>
                     </Switch>
                   </div>

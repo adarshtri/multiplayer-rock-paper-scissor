@@ -3,18 +3,21 @@ import Square from "./square";
 import {Col, Row} from "antd";
 import "antd/dist/antd.css";
 import {Card, CardContent, CardHeader} from "@material-ui/core";
+import Cookies from "js-cookie";
 
 
 export default class Board extends Component {
 
     constructor(props) {
         super(props);
-
         this.state = {
-            choice: this.props.choice
+            "choice": "circle"
         }
-
         this.square_click_callback = this.square_click_callback.bind(this);
+    }
+
+    componentDidMount() {
+        this.setState({gameid: this.props.match.params.gameid, gameProps: this.props.location.state, choice: (this.props.location.state.data.gameDetails["cross"] === Cookies.get("username"))? "cross": "circle"})
     }
 
     square_click_callback(location){
@@ -22,6 +25,7 @@ export default class Board extends Component {
 
 
     render() {
+
         return(
             <Card>
                 <CardHeader title={"TicTacToe"}/>

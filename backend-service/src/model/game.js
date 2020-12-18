@@ -6,6 +6,14 @@ let gameSchema = new Schema({
         type: String,
         required: true,
         enum: ['tictactoe']
+    },
+    players: {
+        type: Array,
+        required: false
+    },
+    gameDetails: {
+        type: Object,
+        required: false
     }
 });
 

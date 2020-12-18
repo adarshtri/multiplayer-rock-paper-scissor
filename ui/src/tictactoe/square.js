@@ -16,6 +16,10 @@ export default class Square extends Component{
         this.change_square_state = this.change_square_state.bind(this);
     }
 
+    componentWillReceiveProps(nextProps, nextContext) {
+        this.setState({choice: nextProps.choice});
+    }
+
     change_square_state(){
         if(this.state.background_icon === null){
             if(this.state.choice === "cross")
