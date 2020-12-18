@@ -1,6 +1,7 @@
 'use strict';
 
 const express = require('express');
+const cors = require('cors');
 let routes = require("./src/routes");
 let bodyParser = require("body-parser");
 let mongoose = require("mongoose");
@@ -11,6 +12,7 @@ const HOST = '0.0.0.0';
 
 // App
 const app = express();
+app.use(cors());
 
 // use body parser for post request
 app.use(bodyParser.urlencoded({

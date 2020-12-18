@@ -13,14 +13,16 @@ router.get('/', function (request, response){
 });
 
 router.route("/game")
-    .get(gameController.index)
-    .post(gameController.new);
+    .post(gameController.new)
+    .patch(gameController.patch);
 
 router.route("/game/:gameid")
-    .get(gameController.view);
+    .get(gameController.findById);
 
-router.route("/user/:username")
-    .get(userController.get)
-    .post(userController.new);
+router.route("/login/:username")
+    .get(userController.login);
+
+router.route("/signup/:username")
+    .get(userController.new);
 
 module.exports = router;

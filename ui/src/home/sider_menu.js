@@ -30,35 +30,15 @@ export default class SiderMenu extends Component{
                         </Link>
                     </Menu.Item>
 
-                    {/*<SubMenu*/}
-                    {/*    key="sub1"*/}
-                    {/*    title={*/}
-                    {/*        <span>*/}
-                    {/*                        <SettingOutlined />*/}
-                    {/*                        <span>Build</span>*/}
-                    {/*                        </span>*/}
-                    {/*    }*/}
-                    {/*>*/}
+                    <Menu.Item key="user_account" icon={<SmileOutlined/>} >
+                        <Link to="/user/account">
+                            User Account
+                        </Link>
+                    </Menu.Item>
 
-                    {/*    <Menu.Item key="build_menu_item" icon={<HistoryOutlined />}>*/}
-                    {/*        <Link to="/build/history">*/}
-                    {/*            History*/}
-                    {/*        </Link>*/}
-                    {/*    </Menu.Item>*/}
-
-
-                    {/*    <Menu.Item key="build_health_item" icon={<SmileOutlined/>} >*/}
-                    {/*        <Link to="/health/daily/overview">*/}
-                    {/*            Health*/}
-                    {/*        </Link>*/}
-                    {/*    </Menu.Item>*/}
-
-
-                    {/*</SubMenu>*/}
-
-                    <Menu.Item key={"account"} icon={<FireFilled/>}>
-                        <Link to={"/home"}>
-                            Incidents
+                    <Menu.Item key={"longin_signup"} icon={<FireFilled/>}>
+                        <Link to={"/login"}>
+                            Login/SignUp
                         </Link>
                     </Menu.Item>
 
