@@ -91,7 +91,13 @@ export default class Home extends Component{
             }else if(this.state.game === "tictactoe"){
                 createGame({gameType: "tictactoe",
                     players: [Cookies.get("username")],
-                    gameDetails: {cross: Cookies.get("username")}}).then(data=>{
+                    gameDetails: {cross: Cookies.get("username"),
+                        turn: Cookies.get("username"),
+                        moves: [
+                            ["", "", ""],
+                            ["", "", ""],
+                            ["", "", ""]
+                        ]}}).then(data=>{
                     if(data["response_status"] === "OK"){
                         this.setState({gameProps: data});
                     }else{

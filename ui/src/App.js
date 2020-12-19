@@ -58,7 +58,7 @@ export default class App extends Component{
                       </div>
                     </Col>
                     <Col span={22} className={"center"}>
-                        <h1 style={{color: "#316DC1", margin: "20px"}}>Lets Play!</h1>
+                        <h1 style={{color: "#316DC1", margin: "20px"}}>World of Board Games</h1>
                     </Col>
                   </Row>
                 </Header>

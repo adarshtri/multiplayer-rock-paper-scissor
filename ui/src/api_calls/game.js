@@ -7,7 +7,9 @@ export async function createGame(gameParams) {
         method: "POST",
         headers: {
             'Accept': 'application/json',
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "User-Agent": "localtunnel"
         },
         body: JSON.stringify(gameParams)
     });
@@ -21,7 +23,9 @@ export async function getGame(gameid){
         method: "GET",
         headers: {
             'Accept': 'application/json',
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "User-Agent": "localtunnel"
         }
     });
 
@@ -34,7 +38,9 @@ export async function updateGame(updateParams){
         method: "PATCH",
         headers: {
             'Accept': 'application/json',
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "User-Agent": "localtunnel"
         },
         body: JSON.stringify(updateParams)
     });
