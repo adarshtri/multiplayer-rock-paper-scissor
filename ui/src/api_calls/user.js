@@ -1,5 +1,5 @@
 import Cookies from "js-cookie";
-const server_endpoint = "http://localhost:8080/api"
+const server_endpoint = "http://localhost:8080/api/"
 
 
 export async function login(username){
@@ -9,7 +9,9 @@ export async function login(username){
         method: "GET",
         headers: {
             'Accept': 'application/json',
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "User-Agent": "localtunnel"
         }
     });
 
@@ -39,7 +41,9 @@ export async function signup(username){
         method: "GET",
         headers: {
             'Accept': 'application/json',
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+            "User-Agent": "localtunnel"
         }
     });
 
